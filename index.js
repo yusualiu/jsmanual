@@ -140,33 +140,59 @@ var fixedValue = 4;
 //Refactor Global Variables Out of Functions
 // The global variable
 
-// The global variable
-var bookList = ["The Hound of the Baskervilles", "On The Electrodynamics of Moving Bodies", "Philosophiæ Naturalis Principia Mathematica", "Disquisitiones Arithmeticae"];
 
-// Change code below this line
-function add (addList,bookName) {
 
-  addList.push(bookName);
-  return addList;
-  
-  // Change code above this line
-}
+/*
+Link: https://beta.freecodecamp.org/en/challenges/functional-programming/refactor-global-variables-out-of-functions
+*/
 
-// Change code below this line
-function remove (List,bookName) {
-  
-  var book_index = List.indexOf(bookName);
-  if (book_index >= 0) {
+// // the global variable
+// var bookList = ["The Hound of the Baskervilles", "On The Electrodynamics of Moving Bodies", "Philosophiæ Naturalis Principia Mathematica", "Disquisitiones Arithmeticae"];
 
-    List.splice(book_index, 1);
-    return List;
+// //function add a book to the array
+// function add( bookList, bookName ) {
+// 	//make a copy of the argument's array
+// 	let bookListCopy = bookList.slice(0);
+// 	//add the bookName to the new array
+// 	bookListCopy.push( bookName );
+	
+// 	//return the new modified array
+// 	return bookListCopy;
+// };
 
-    // Change code above this line
-    }
-}
+// //function remove a book from the array
+// function remove( bookList, bookName ) {
+// 	//make a copy of the argument's array
+// 	let bookListCopy = bookList.slice(0);
+	
+// 	if( bookListCopy.indexOf( bookName ) >= 0 ) {
+// 		//delet the book
+// 		bookListCopy.splice( bookListCopy.indexOf( bookName ), 1 );
+		
+// 		//return the new modified array
+// 		return bookListCopy;
+//     }
+// };
 
-var newBookList = add(bookList, 'A Brief History of Time');
-var newerBookList = remove(bookList, 'On The Electrodynamics of Moving Bodies');
-var newestBookList = remove(add(bookList, 'A Brief History of Time'), 'On The Electrodynamics of Moving Bodies');
+// //create a new array from an already existing one but with a new bookName in it
+// var newBookList = add( bookList, 'A Brief History of Time' );
 
-console.log(bookList);
+// //create a new array from an already existing one but with a deleted bookName from it
+// var newerBookList = remove( bookList, 'On The Electrodynamics of Moving Bodies' );
+
+// //remove from the bookList at which we added 'A Brief History of Time', the bookName 'On The Electrodynamics of Moving Bodies'
+// var newestBookList = remove( newBookList, 'On The Electrodynamics of Moving Bodies' );
+
+// //["The Hound of the Baskervilles", "On The Electrodynamics of Moving Bodies", "Philosophiæ Naturalis Principia Mathematica", "Disquisitiones Arithmeticae"];
+// console.log( bookList );
+// //["The Hound of the Baskervilles", "Philosophiæ Naturalis Principia Mathematica", "Disquisitiones Arithmeticae"]
+// console.log( newerBookList );
+// //["The Hound of the Baskervilles", "Philosophiæ Naturalis Principia Mathematica", "Disquisitiones Arithmeticae", "A Brief History of Time"]
+// console.log( newestBookList );
+
+
+// So far, we have seen two distinct principles for functional programming:
+
+// 1) Don't alter a variable or object - create new variables and objects and return them if need be from a function.
+
+// 2) Declare function arguments - any computation inside a function depends only on the arguments, and not on any global object or variable.
